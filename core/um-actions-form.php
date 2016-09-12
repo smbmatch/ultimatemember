@@ -414,7 +414,8 @@
 									}
 								}
 							break;
-							
+
+							/*
 							case 'alphabetic':
 
 								if ( $args[$key] != '' ) {
@@ -435,6 +436,7 @@
 								}
 
 							break;
+							*/
 
 						}
 
