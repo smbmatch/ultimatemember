@@ -12,7 +12,7 @@ class UM_Admin_Roles {
 
 	function remove_row_actions( $actions, $post ){
 	  global $current_screen, $ultimatemember;
-		if( $current_screen->post_type != 'um_role' ) return $actions;
+		if( !isset($current_screen) || $current_screen->post_type != 'um_role' ) return $actions;
 		
 		if( $ultimatemember->query->is_core( $post->ID ) ){
 			unset( $actions['trash'] );
