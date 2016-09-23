@@ -272,7 +272,7 @@ class UM_Shortcodes {
 		// get data into one global array
 		$post_data = $ultimatemember->query->post_data($this->form_id);
 
-		$args = apply_filters('um_pre_args_setup', $post_data);
+		$post_data = apply_filters('um_pre_args_setup', $post_data);
 
 		if (!isset($args['template'])) {
 			$args['template'] = '';
