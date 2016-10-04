@@ -27,6 +27,10 @@
 				case 'redirect_url':
 					$url = $args['redirect_url'];
 					break;
+
+				case 'redirect_relative':
+					$url = network_site_url( $args['redirect_url'] );
+					break;
 					
 				case 'refresh':
 					$url = $ultimatemember->permalinks->get_current_url();

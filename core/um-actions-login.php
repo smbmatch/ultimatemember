@@ -189,6 +189,10 @@
 				exit( wp_redirect( um_user('login_redirect_url') ) );
 				break;
 
+			case 'redirect_relative':
+				exit( wp_redirect( network_site_url( um_user('login_redirect_url') ) ) );
+				break;
+
 			case 'refresh':
 				exit( wp_redirect( $ultimatemember->permalinks->get_current_url() ) );
 				break;
