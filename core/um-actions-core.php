@@ -17,9 +17,11 @@
 				wp_die('Super administrators can not be modified.');
 		}
 
+		/*  Handle on case-by-case basis so we can add user actions.
 		if ( isset( $_REQUEST['um_action'] ) && $_REQUEST['um_action'] != "edit" && ! current_user_can( 'edit_users' ) ){
 						wp_die( __( 'You do not have enough permissions to do that.','ultimatemember') );
 		}
+		*/
 		
 		if ( isset($_REQUEST['uid'])){
 			$uid = $_REQUEST['uid'];
@@ -47,6 +49,7 @@
 				break;
 				
 			case 'um_reject_membership':
+				if ( !current_user_can('edit_users') ) return;
 				um_fetch_user( $uid );
 				$ultimatemember->user->reject();
 				exit( wp_redirect( $ultimatemember->permalinks->get_current_url( true ) ) );
@@ -54,24 +57,28 @@
 				
 			case 'um_approve_membership':
 			case 'um_reenable':
+			if ( !current_user_can('edit_users') ) return;
 				um_fetch_user( $uid );
 				$ultimatemember->user->approve();
 				exit( wp_redirect( $ultimatemember->permalinks->get_current_url( true ) ) );
 				break;
 				
 			case 'um_put_as_pending':
+				if ( !current_user_can('edit_users') ) return;
 				um_fetch_user( $uid );
 				$ultimatemember->user->pending();
 				exit( wp_redirect( $ultimatemember->permalinks->get_current_url( true ) ) );
 				break;
 				
 			case 'um_resend_activation':
+				if ( !current_user_can('edit_users') ) return;
 				um_fetch_user( $uid );
 				$ultimatemember->user->email_pending();
 				exit( wp_redirect( $ultimatemember->permalinks->get_current_url( true ) ) );
 				break;
 				
 			case 'um_deactivate':
+				if ( !current_user_can('edit_users') ) return;
 				um_fetch_user( $uid );
 				$ultimatemember->user->deactivate();
 				exit( wp_redirect( $ultimatemember->permalinks->get_current_url( true ) ) );
