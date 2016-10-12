@@ -144,9 +144,11 @@
 	add_action( 'wp_login', 'um_store_lastlogin_timestamp_' );
 	function um_store_lastlogin_timestamp_( $login ) {
 		$user = get_user_by('login',$login);
-		$user_id = $user->ID;
-		delete_user_meta( $user_id, '_um_last_login' );
-		update_user_meta( $user_id, '_um_last_login', current_time( 'timestamp' ) );
+		if ( $user ) {
+			$user_id = $user->ID;
+			delete_user_meta( $user_id, '_um_last_login' );
+			update_user_meta( $user_id, '_um_last_login', current_time( 'timestamp' ) );
+		}
 	}
 
 	/***

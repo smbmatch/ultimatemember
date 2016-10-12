@@ -127,7 +127,9 @@
 
 		$ultimatemember->user->set_role( $role );
 
-		$ultimatemember->user->set_registration_details( $args['submitted'] );
+		if ( isset($args['submitted']) ) {
+			$ultimatemember->user->set_registration_details( $args['submitted'] );
+		}
 
 		$ultimatemember->user->set_last_login();
 
