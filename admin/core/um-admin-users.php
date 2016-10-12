@@ -309,7 +309,7 @@ class UM_Admin_Users {
 					<option value="0"><?php _e('Filter by','ultimatemember'); ?></option>
 					<?php
 						$roles = $ultimatemember->query->get_roles();
-						$um_filter_role = isset( $_REQUEST['um_filter_role'] )? current( array_filter($_REQUEST['um_filter_role']) ):'';
+						$um_filter_role = isset( $_REQUEST['um_filter_role'] )? @current( array_filter($_REQUEST['um_filter_role']) ):'';
 						foreach( $roles as $role => $role_name ) { ?>
 						<option value="<?php echo urlencode( $role ); ?>" <?php selected($role,$um_filter_role); ?>><?php echo $role_name; ?></option>
 						<?php } ?>
