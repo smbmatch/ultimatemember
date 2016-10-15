@@ -58,8 +58,8 @@
 			'um_user_tag',
 			'um_hashtag',
 	);
-
-	$taxonomies = get_taxonomies(); 
+	$exclude_taxonomies = apply_filters('um_exclude_taxonomies',$exclude_taxonomies);
+	$taxonomies = get_taxonomies();
 
 
 	foreach ($taxonomies as $key => $taxonomy) {
