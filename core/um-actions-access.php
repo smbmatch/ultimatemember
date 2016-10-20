@@ -394,7 +394,7 @@
 								if( isset( $opt['_um_redirect'] ) && ! empty(  $opt['_um_redirect']  ) ) {
 									$redirect = $opt['_um_redirect'];
 								}else{  
-									$redirect = site_url();
+									$redirect = $ultimatemember->access->default_redirect();
 								}
 							}
 							
@@ -480,7 +480,7 @@
 						case 1:
 
 							if ( is_user_logged_in() )
-								$redirect = ( isset( $opt['_um_redirect'] ) && !empty( $opt['_um_redirect'] )  ) ? $opt['_um_redirect'] : site_url();
+								$redirect = ( isset( $opt['_um_redirect'] ) && !empty( $opt['_um_redirect'] )  ) ? $opt['_um_redirect'] : $ultimatemember->access->default_redirect();
 								$redirect = $ultimatemember->access->set_referer( $redirect, "categories_1" );
 								$ultimatemember->access->redirect_handler = $redirect;
 							if ( !is_user_logged_in() )
@@ -502,7 +502,7 @@
 								if ( !in_array( um_user('role'), $opt['_um_roles'] ) ) {
 									$redirect = null;
 									if ( is_user_logged_in() ){
-										$redirect = ( isset( $opt['_um_redirect'] ) ) ? $opt['_um_redirect'] : site_url();
+										$redirect = ( isset( $opt['_um_redirect'] ) ) ? $opt['_um_redirect'] : $ultimatemember->access->default_redirect();
 									}
 
 									if ( !is_user_logged_in() ){
@@ -557,8 +557,6 @@
 		}
 
 		$args = $ultimatemember->access->get_meta( $um_post_id );
-
-
 		extract( $args );
 
 		// Check for parent page's custom access settings
@@ -592,7 +590,7 @@
 							case 1: // Logged out users only
 								
 								if ( is_user_logged_in() ){
-									$redirect = ( isset( $opt['_um_redirect'] ) && ! empty( $opt['_um_redirect'] ) ) ? $opt['_um_redirect'] : site_url();
+									$redirect = ( isset( $opt['_um_redirect'] ) && ! empty( $opt['_um_redirect'] ) ) ? $opt['_um_redirect'] : $ultimatemember->access->default_redirect();
 									$redirect = $ultimatemember->access->set_referer( $redirect, "page_cat_1a_t{$cat->term_id}_pt{$post_type}" );
 									$ultimatemember->access->redirect_handler = $redirect;
 									$ultimatemember->access->allow_access = false;
@@ -626,7 +624,7 @@
 									
 										}else{
 
-											$redirect = ( isset( $opt['_um_redirect'] ) && ! empty( $opt['_um_redirect'] ) ) ? $opt['_um_redirect'] : site_url();
+											$redirect = ( isset( $opt['_um_redirect'] ) && ! empty( $opt['_um_redirect'] ) ) ? $opt['_um_redirect'] : $ultimatemember->access->default_redirect();
 											$redirect = $ultimatemember->access->set_referer( $redirect, "page_cat_2b_t{$cat->term_id}_pt{$post_type}" );
 											$ultimatemember->access->redirect_handler = $redirect;
 									
@@ -687,7 +685,7 @@
 						if ( ! is_user_logged_in() ){
 							$redirect_to = um_get_core_page("login");
 						}else{
-							$redirect_to = um_get_core_page("user");
+							$redirect_to = $ultimatemember->access->default_redirect();
 						}
 
 						$redirect_to = $ultimatemember->access->set_referer( $redirect_to, "post_1b" );
@@ -717,7 +715,7 @@
 						if ( !empty( $access_roles ) && !in_array( um_user('role'), $access_roles ) ) {
 							if ( !$access_redirect ) {
 								if ( is_user_logged_in() ) {
-									$access_redirect = esc_url( site_url() );
+									$access_redirect = $ultimatemember->access->default_redirect();
 								} else {
 									$access_redirect = esc_url( um_get_core_page('login') );
 								}
@@ -734,7 +732,7 @@
 			}
 		}
 
-		if( um_is_core_page('user') && ! is_user_logged_in() && ! empty( $access_redirect ) && isset( $args['custom_access_settings'] ) && $args['custom_access_settings'] != 0  ){
+		if( um_is_core_page('user') && ! is_user_logged_in() && ! empty( $access_redirect ) ){
 		  		$ultimatemember->access->allow_access = false;
 		  		$access_redirect = $ultimatemember->access->set_referer( $access_redirect, "user_page" );
 				$ultimatemember->access->redirect_handler = esc_url( $access_redirect );

@@ -10,7 +10,14 @@ class UM_Access {
 		add_action('template_redirect',  array(&$this, 'template_redirect'), 1000 );
 		
 	}
-	
+
+
+	/*
+	 * Determine a default url to redirect to in case it is not explicitly specified.
+	 */
+	function default_redirect( ) {
+		return apply_filters('um_default_redirect', site_url());
+	}
 	
 	/**
 	 * Set custom access actions and redirection
