@@ -125,7 +125,7 @@
         
 
         // show unique username validation only for user_login field
-		if( $field_array['metakey'] == 'user_login' && $key !== 'unique_username' ){
+		if( @$field_array['metakey'] == 'user_login' && $key !== 'unique_username' ){
                return false;
 		}
 

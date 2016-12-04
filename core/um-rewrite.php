@@ -30,6 +30,8 @@ class UM_Rewrite {
 	***/
 	function rewrite_rules(){
 
+		if ( is_admin() ) return;
+
 		global $ultimatemember;
 
 		if ( isset( $ultimatemember->permalinks->core['user'] ) ) {
@@ -85,7 +87,7 @@ class UM_Rewrite {
 				);
 
 				if( !apply_filters('um_rewrite_flush_rewrite_rules', um_get_option('um_flush_stop') ) )
-					flush_rewrite_rules( true );
+					flush_rewrite_rules( true ); error_log("flush case #4");
 
 			}
 

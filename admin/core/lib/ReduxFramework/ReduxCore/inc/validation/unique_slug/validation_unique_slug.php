@@ -63,7 +63,7 @@
             } //function
 
             function flush_permalinks() {
-                flush_rewrite_rules();
+                flush_rewrite_rules(); error_log("flush case #5");
             }
         } //class
     }
