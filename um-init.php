@@ -1,5 +1,45 @@
 <?php
 
+/**
+ * Class UM_API
+ *
+ * // Help your IDE help you.
+ * @property UM_REST_API api
+ * @property UM_Rewrite rewrite
+ * @property UM_Setup setup
+ * @property UM_Uninstall uninstall
+ * @property UM_FontIcons icons
+ * @property UM_Enqueue styles
+ * @property UM_Shortcodes shortcodes
+ * @property UM_Account account
+ * @property UM_Password password
+ * @property UM_Login login
+ * @property UM_Register register
+ * @property UM_Fields fields
+ * @property UM_User user
+ * @property UM_User_Posts user_posts
+ * @property UM_Profile profile
+ * @property UM_DateTime datetime
+ * @property UM_chart chart
+ * @property UM_Builtin builtin
+ * @property UM_Form form
+ * @property UM_Files files
+ * @property UM_Taxonomies taxonomies
+ * @property UM_Validation validation
+ * @property UM_Query query
+ * @property UM_Menu menu
+ * @property UM_Access access
+ * @property UM_Permalinks permalinks
+ * @property UM_Mail mail
+ * @property UM_members members
+ * @property UM_Logout logout
+ * @property UM_Modal modal
+ * @property UM_Cron cron
+ * @property UM_Tracking tracking
+ * @property Mobile_Detect mobile
+ * @property array options
+ * @property array addons
+ */
 class UM_API {
 
 	public $is_filtering;

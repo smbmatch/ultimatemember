@@ -8,9 +8,6 @@
 		global $ultimatemember;
 
 		$is_email = false;
-
-			  $form_id = $args['form_id'];
-				 $mode = $args['mode'];
 		$user_password = $args['user_password'];
 
 
