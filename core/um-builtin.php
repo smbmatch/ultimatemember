@@ -712,6 +712,21 @@ class UM_Builtin {
 				'editable' => 1,
 				'options' => $this->get('countries')
 			),
+
+			'website' => array(
+				'title' => __('Website','ultimatemember'),
+				'metakey' => 'website',
+				'type' => 'url',
+				'label' => __('Website','ultimatemember'),
+				'required' => 0,
+				'public' => 1,
+				'editable' => 1,
+				'url_target' => '_blank',
+				'url_rel' => 'nofollow',
+				'icon' => 'um-icon-android-globe',
+				'validate' => 'url',
+				'advanced' => 'social',
+			),
 			
 			'facebook' => array(
 				'title' => __('Facebook','ultimatemember'),
