@@ -446,7 +446,7 @@ function um_user_ip() {
 		$value = um_profile( $key );
 		$submatch = str_replace( 'https://', '', $match );
 		$submatch = str_replace( 'http://', '', $submatch );
-		if ( strstr( $value, $submatch ) ) {
+		if ( !empty($submatch) && strstr( $value, $submatch ) ) {
 			$value = 'https://' . $value;
 		} else if ( strpos($value, 'http') !== 0 ) {
 			$value = $match . $value;

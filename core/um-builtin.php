@@ -723,9 +723,11 @@ class UM_Builtin {
 				'editable' => 1,
 				'url_target' => '_blank',
 				'url_rel' => 'nofollow',
-				'icon' => 'um-icon-android-globe',
+				'icon' => 'um-icon-ios-world-outline', // 'um-icon-android-globe', //'um-faicon-globe', //
 				'validate' => 'url',
 				'advanced' => 'social',
+				'color' => '#003380',
+				'match' => '',
 			),
 			
 			'facebook' => array(
