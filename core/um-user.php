@@ -631,7 +631,7 @@ class UM_User {
 	 *
 	 * @usage <?php $ultimatemember->user->get_role(); ?>
 	 *
-	 * @returns The user role's slug.
+	 * @returns string The user role's slug.
 	 *
 	 * @example Do something if the user's role is paid-member
 
