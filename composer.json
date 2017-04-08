@@ -1,5 +1,5 @@
 {
-  "name": "smb/ultimatemember",
+  "name": "smbmatch/ultimatemember",
   "type": "wordpress-plugin",
   "require": {
     "php": ">=5.3.0"
