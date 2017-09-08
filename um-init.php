@@ -264,3 +264,4 @@ class UM_API {
 }
 
 $ultimatemember = new UM_API();
+$GLOBALS['ultimatemember'] = $ultimatemember;
